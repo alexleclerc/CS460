@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!--The landing page of my art website. In the future this will probably have an about section and such.-->
 <html lang="en">
   <head>
     <title>alexfindsfrogs</title>
@@ -12,10 +11,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    
   </head>
   
   <body>
+    <!--putting header before nav from:
+        https://codepen.io/j_holtslander/pen/MwdObK
+    -->
     <div class="container" id="banner">
         <h1>alexfindsfrogs</h1>
     </div>
@@ -24,9 +25,9 @@
         <nav class="navbar navbar-default">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="./hw1-1-home.html">Home</a></li>
+                    <li><a href="./hw1-1-home.html">Home</a></li>
                     <li><a href="./hw1-2-digital.html">Art</a></li>
-                    <li><a href="./hw1-3-sketch.html">Sketch</a></li>
+                    <li class="active"><a href="./hw1-3-sketch.html">Sketch</a></li>
                     <li><a href="./hw1-4-commission.html">Commission</a></li>
                     <li><a href="./hw1-5-social.html">Social/Contact</a></li>
                 </ul>
@@ -34,9 +35,33 @@
         </nav>
     </div>
      
-    <div class="container" id="content">
-        <h2>Welcome</h2>
-            <p>This web page is home to my portfolio of illustrative work. This includes a mix of digital computer graphics art, traditional illustration work, and pencil sketches.</p>
+    <div class="container">
+       <h2>Sketch</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src="images/sketch1.jpg" alt="Lotus Fairy">
+            </div>
+
+            <div class="col-md-4">
+                <img class="img-responsive" src="images/sketch2.jpg" alt="Witch Boy" >
+            </div>
+
+            <div class="col-md-4">  
+              <img class="img-responsive" src="images/sketch3.jpg" alt="Fire">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src="images/sketch4.jpg" alt="Lotus Fairy">
+            </div>
+
+            <div class="col-md-4">
+                <img class="img-responsive" src="images/sketch5.jpg" alt="Witch Boy" >
+            </div>
+        </div>
+    
     </div>
+
   </body>
 </html>
