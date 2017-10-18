@@ -18,10 +18,119 @@
             <h1>Coffee Counter</h1>
             <div class="container inner">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
                         <p>A daily coffee is part of most people's routine. While coffee isn't bad for you, some of the stuff you ask the barista to put in it can be. Here we can run some numbers on the calories that go into your morning cup.</p>
                     </div>
                 </div>
+                
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Coffee Type</h6>
+                        <input type="checkbox" name="coffee">
+                        <label for="coffee">Coffee</label>
+                        
+                        <input type="checkbox" name="espresso">
+                        <label for="espresso">Espresso</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>Size</h4>
+                        <input type="checkbox" name="eightoz"><label for="eightoz">8oz</label>
+                        <input type="checkbox" name="twelveoz"><label for="twelveoz">12oz</label>
+                        <input type="checkbox" name="sixteenoz"><label for="sixteenoz">16oz</label>
+                        <input type="checkbox" name="twentyoz"><label for="twentyoz">20oz</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Extra Shots</h4>
+                        <input type="number" min="0" max="6">
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>Milk</h4>
+                        <input type="checkbox" name="skim"><label for="skim">Skim</label>
+                        <input type="checkbox" name="whole"><label for="whole">Whole</label>
+                        <input type="checkbox" name="handh"><label for="handh">Half & Half</label>
+                        <input type="checkbox" name="heavy"><label for="heavy">Heavy</label>
+                    </div>
+                </div>
+                
+                <h3>Extras</h3>
+                
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <input type="checkbox" name="sugar"><label for="sugar">Sugar</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" min="0" max="6" name="sugar">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <input type="checkbox" name="whip"><label for="whip">Whipped Cream</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" min="0" max="4" name="whip">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <input type="checkbox" name="honey"><label for="honey">Honey</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" min="0" max="4" name="honey">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <input type="checkbox" name="chocolate"><label for="chocolate">Chocolate</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" min="0" max="4" name="chocolate">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <input type="checkbox" name="flavor"><label for="flavor">Flavored Syrup</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" min="0" max="4" name="flavor">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class=row>
+                    <div class="col-sm-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Type
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                    <th>
+                                        Calories
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div> 
+                </div>    
+                
+                <h3>Total</h3>
+                
             </div>
         </div>
     </body>
+</html>
