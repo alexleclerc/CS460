@@ -64,13 +64,13 @@
                         <div class="col-sm-6">
                             <!--MILK-->
                                 <h4>Milk</h4>
-                                <input type="checkbox" id="skim" value="5" name="milk"><label for="skim">Skim</label>
+                                <input type="radio" id="skim" value="5" name="milk"><label for="skim">Skim</label>
 
-                                <input type="checkbox" id="whole" value="9" name="milk"><label for="whole">Whole</label>
+                                <input type="radio" id="whole" value="9" name="milk"><label for="whole">Whole</label>
 
-                                <input type="checkbox" id="handh" value="20" name="milk"><label for="handh">Half & Half</label>
+                                <input type="radio" id="handh" value="20" name="milk"><label for="handh">Half & Half</label>
 
-                                <input type="checkbox" id="heavy" value="52" name="milk"><label for="heavy">Heavy</label>
+                                <input type="radio" id="heavy" value="52" name="milk"><label for="heavy">Heavy</label>
                             <!--/MILK-->
                         </div>
                     </div>
@@ -191,6 +191,14 @@
                     return coffeeBase * coffeeSize;
                 }
                 
+                function shotsTotal() {
+                    return parseInt($("#shots").val());
+                }
+                
+                function milkTotal() {
+                    return parseInt($("input[name='milk']:checked").val());
+                }
+                
                 //if the class 'extras' is checked we set it's value to one, and then the user can increase it.
                 $(".extra:checkbox").change(function(){
                     //I append the javascript this.name into the jquery string for the selector so that the checked box only changes the number input field with the same name.
@@ -211,7 +219,9 @@
                     if(coffeeTypeValidation()){
                         calorieTotal = 0;
                         calorieTotal += coffeeTypeTotal();
-                        alert("Total is:" + calorieTotal);
+                        calorieTotal += shotsTotal();
+                        calorieTotal += milkTotal();
+                        alert("Total is:" + calorieTotal );
                     }
                     
                 }
