@@ -26,7 +26,7 @@
                         <p>A daily coffee is part of most people's routine. While coffee isn't bad for you, some of the stuff you ask the barista to put in it can be. Here we can run some numbers on the calories that go into your morning cup.</p>
                     </div>
                 </div>
-                <form id="coffeeForm">
+                <form id="coffeeForm" onsubmit="coffeeCalculation()">
                     <div class="row">
                         
                             <div class="col-sm-6">
@@ -181,11 +181,17 @@
         <!--javascript/jQuery stuff-->
             <script>
                 //function checks if both required radio buttons are checked
-                function radioValidation() {
-                    return ($("input:radio[name='coffeetype'']").is(":checked") )&& ($("input:radio[name='size']").is(":checked"));
+                function coffeeTypeValidation() {
+                    return $("input:radio[name='coffeetype']").is(":checked") && $("input:radio[name='size']").is(":checked");
                 }
                 
-                //this is a pretty loose interpretation of 'validation', but basically if a checkbox in the class 'extras' is checked we set it's value to one, and then the user can increase it.
+                function coffeeTypeTotal() {
+                    coffeeBase = $("input[name='coffeetype']:checked").val();
+                    coffeeSize = $("input[name='size']:checked").val();
+                    return coffeeBase * coffeeSize;
+                }
+                
+                //if the class 'extras' is checked we set it's value to one, and then the user can increase it.
                 $(".extra:checkbox").change(function(){
                     //I append the javascript this.name into the jquery string for the selector so that the checked box only changes the number input field with the same name.
                     if(this.checked){
@@ -201,21 +207,15 @@
                     }
                 });
                 
-                /*function coffeCalculation(){
-                    var coffeeBase;
-                    var sizeMultiplier;
-                    //need to make sure one of the radio buttons is checked
-                    if($input[name="coffeetype"].is("checked")) {   
-                        coffeeBase = $("input[name="coffeetype"]:checked").val();
+                function coffeeCalculation(){
+                    if(coffeeTypeValidation()){
+                        calorieTotal = 0;
+                        calorieTotal += coffeeTypeTotal();
+                        alert("Total is:" + calorieTotal);
                     }
-                    else{
-                        return "-1";
-                    }
-                    if($input[name="size"].is("checked")) {
-                        
-                    }
+                    
                 }
-                
+                /*
                 $("#coffeeForm").submit(function (){
                         var total;
                     });*/
