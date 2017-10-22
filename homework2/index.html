@@ -15,6 +15,9 @@
         <!--jQuery CDN from Google-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
+        <!--my style sheet-->
+        <link rel="stylesheet" type="text/css" href="coffeestyle.css">
+        
     </head>
     
     <body>
@@ -22,7 +25,7 @@
             <h1>Coffee Counter</h1>
             <div class="container inner">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-xs-12">
                         <p>A daily coffee is part of most people's routine. While coffee isn't bad for you, some of the stuff you ask the barista to put in it can be. Here we can run some numbers on the calories that go into your morning cup.</p>
                     </div>
                 </div>
@@ -30,58 +33,73 @@
                     <div class="row">
                         
                             <div class="col-sm-6">
+                                
                                 <!--COFFEE TYPE-->
                                     <h4>Coffee Type</h4>
+                                    <div class="inside">
                                         <input type="radio" name="coffeetype" value="0.5" id="coffee" checked="checked">
                                         <label for="coffee">Coffee</label>
 
                                         <input type="radio" name="coffeetype" value="1" id="espresso">
                                         <label for="espresso">Espresso</label>
+                                    </div>
                                 <!--/COFFEE TYPE-->
+                                
                             </div>
                             
                             <div class="col-sm-6">
                                 <!--SIZE-->
                                     <h4>Size</h4>
-                                    <input type="radio" name="size" value="2" id="eightoz" checked="checked"><label for="eightoz">8oz</label>
+                                    <div class="inside">
+                                        <input type="radio" name="size" value="2" id="eightoz" checked="checked"><label for="eightoz">8oz</label>
 
-                                    <input type="radio" name="size" value="3" id="twelveoz"><label for="twelveoz">12oz</label>
+                                        <input type="radio" name="size" value="3" id="twelveoz"><label for="twelveoz">12oz</label>
 
-                                    <input type="radio" name="size" value="4" id="sixteenoz"><label for="sixteenoz">16oz</label>
+                                        <input type="radio" name="size" value="4" id="sixteenoz"><label for="sixteenoz">16oz</label>
 
-                                    <input type="radio" name="size" value="5" id="twentyoz"><label for="twentyoz">20oz</label>
+                                        <input type="radio" name="size" value="5" id="twentyoz"><label for="twentyoz">20oz</label>
+                                    </div>
                                 <!--/SIZE-->
                             </div>
                             
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
+                            
                             <!--SHOTS-->
                             <h4>Extra Shots</h4>
-                                <label for='shots'>Extra Espresso</label>
-                                <input type="number" min="0" max="6" value="0" id="shots">
+                                <div class="inside">
+                                    <label for='shots'>Extra Espresso</label>
+                                    <input type="number" min="0" max="6" value="0" id="shots">
+                                </div>
                             <!--/SHOTS-->
+                            
                         </div>
                         <div class="col-sm-6">
+                            
                             <!--MILK-->
                                 <h4>Milk</h4>
-                                <input type="radio" id="none" value="0" name="milk" checked="checked"><label for="none">None</label>
-                                
-                                <input type="radio" id="skim" value="5" name="milk"><label for="skim">Skim</label>
+                                <div class="inside">
+                                    <input type="radio" id="none" value="0" name="milk" checked="checked"><label for="none">None</label>
 
-                                <input type="radio" id="whole" value="9" name="milk"><label for="whole">Whole</label>
+                                    <input type="radio" id="skim" value="5" name="milk"><label for="skim">Skim</label>
 
-                                <input type="radio" id="handh" value="20" name="milk"><label for="handh">Half & Half</label>
+                                    <input type="radio" id="whole" value="9" name="milk"><label for="whole">Whole</label>
 
-                                <input type="radio" id="heavy" value="52" name="milk"><label for="heavy">Heavy</label>
+                                    <input type="radio" id="handh" value="20" name="milk"><label for="handh">Half & Half</label>
+
+                                    <input type="radio" id="heavy" value="52" name="milk"><label for="heavy">Heavy</label>
+                                </div>
                             <!--/MILK-->
+                            
                         </div>
                     </div>
 
-                    <h3>Extras</h3>
+                    <h4>Extras</h4>
 
                     <div class="row">
                         <div class="col-sm-12">
+                            <div class="inside">
                             <!--SUGAR-->
                                 <div class="row">
                                     <div class="col-sm-8">
@@ -136,18 +154,22 @@
                                     </div>
                                 </div>
                             <!--FLAVOR-->
+                            </div>
                         </div>
                     </div>
                     
                     <!--once the submit button is hit, we'll call a javascript function to add up the total calories, create the output element, and append it to the page-->
                     <div class="row">
                         <div class="col-sm-12 text-center">
-                            <button onclick="return coffeeCalculation()">Submit</button>
+                            <input type="submit" onclick="return coffeeCalculation()">
                         </div>
                     </div>
                     
                 </form>
-
+                
+                <hr>
+                <h3>Output</h3>
+                <div class="output">
                 <!--the ouptut table for our coffee chart-->
                 <div class=row>
                     <div class="col-sm-12">
@@ -175,15 +197,18 @@
                 </div>
 
                 <!--the output of the total-->
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h3>Total:</h3>
-                    </div>
-                    <div class="col-sm-8 ">
-                        <h3><div id="totaltarget"></div></h3>
+                <div class="outtotal">
+                    <div class="row">
+                        <div class="col-sm-4 text-center">
+                            <h3>Total:</h3>
+                        </div>
+                        <div class="col-sm-8 text-center">
+                            <h3><div id="totaltarget"></div></h3>
+                        </div>
+
                     </div>
                 </div>
-        
+                </div>
             </div>
     
         </div>
