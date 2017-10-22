@@ -176,7 +176,12 @@
 
                 <!--the output of the total-->
                 <div class="row">
-                    <h3>Total: <div id="totaltarget"></div></h3>
+                    <div class="col-sm-4">
+                        <h3>Total:</h3>
+                    </div>
+                    <div class="col-sm-8 ">
+                        <h3><div id="totaltarget"></div></h3>
+                    </div>
                 </div>
         
             </div>
@@ -212,6 +217,15 @@
                        } 
                     });
                     return sum;
+                }
+                
+                function calorieTotal() {
+                    var total = 0;
+                    total += coffeeTypeTotal();
+                    total += shotsTotal();
+                    total += milkTotal();
+                    total += extraTotal();
+                    $("#totaltarget").html(total);
                 }
                 
                 function coffeeRow() {
@@ -331,14 +345,7 @@
                 
                 function coffeeCalculation(){
                     if(coffeeTypeValidation()){
-                        /*calorieTotal = 0;
-                        calorieTotal += coffeeTypeTotal();
-                        calorieTotal += shotsTotal();
-                        calorieTotal += milkTotal();
-                        calorieTotal += extraTotal();
-                        console.log("Total is:" + calorieTotal );*/
-                        console.log(milkRow());
-                        console.log(extraRows());
+                        calorieTotal();
                         tableMaker();
                     }
                     return false;
