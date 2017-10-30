@@ -8,8 +8,18 @@ namespace CalculatorApp
 {
     class Calculator
     {
+        //private IStackADT Stack = new LinkedStack();
+
         static void Main(string[] args)
         {
+            Calculator app = new Calculator();
+            bool PlayAgain = true;
+            Console.WriteLine("Postfix Calculator. Recognizes these operators: + - * /");
+            while (PlayAgain)
+            {
+                PlayAgain = true;
+            }
+            Console.WriteLine("Bye.");
         }
     }
 }
