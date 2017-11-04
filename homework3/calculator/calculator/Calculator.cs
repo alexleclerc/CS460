@@ -101,7 +101,7 @@ namespace CalculatorApp
             Stack.Clear();
 
             //look for one or more digits (optionally with decimals)
-            //followed separted by a space, followed by an operator
+            //separted by a space, followed by an operator
             string Pattern = @"(\d+(?:\.\d+)*)\s(\d+(?:\.\d+)*)\s*([\+\-\*\/])";
             Match InputMatch = Regex.Match(input, Pattern);
 
@@ -142,6 +142,11 @@ namespace CalculatorApp
             double a;  //first operand
             double b;  //second operand
             double c;  //answer
+
+            //try to check if something went sideways
+            if (Stack.IsEmpty()) {
+                throw new ArgumentNullException("Arguments were not pushed onto stack.");
+            }
 
             //pop the top item into the operator
             op = Stack.Pop().ToString();

@@ -1,5 +1,5 @@
 ﻿/// <summary>
-/// Summary description for Class1
+/// Singly linked stack data structure.
 /// </summary>
 public class LinkedStack : IStackADT
 {
