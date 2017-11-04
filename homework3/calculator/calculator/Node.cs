@@ -1,12 +1,12 @@
 ﻿using System;
 
 /// <summary>
-/// Summary description for Class1
+/// Node class for a singly linked list data structure. 
 /// </summary>
 public class Node
 {
-    public object Data;
-    public Node Next;
+    public object Data; //Payload
+    public Node Next; //the next node in the chain
 
 	public Node()
 	{
