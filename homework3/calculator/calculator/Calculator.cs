@@ -28,7 +28,7 @@ namespace CalculatorApp
             Console.WriteLine("Enter 'q' to quit.");
             string Input = "2 2 +";
             Console.Write("> ");
-
+            string Output = "4";
             Input = Console.ReadLine();
 
             if (Input.StartsWith("q") || Input.StartsWith("Q"))
@@ -36,13 +36,16 @@ namespace CalculatorApp
                 return false;
             }
 
-            string Output = "4";
+            try
+            {
+                Output = EvaluatePostFixInput(Input);
+            }
+            catch (Exception e)
+            {
+                Output = e.Message;
+            }
 
-            EvaluatePostFixInput(Input);
-
-            Console.WriteLine(Input);
-            Console.WriteLine(Output);
-
+            Console.WriteLine("\n\t >>> " + Input + " = " + Output);
             return true;
         }
 
@@ -59,17 +62,69 @@ namespace CalculatorApp
             //followed separted by a space, followed by an operator
             string Pattern = @"(\d+(?:\.\d+)*)\s(\d+(?:\.\d+)*)\s*([\+\-\*\/])";
             Match InputMatch = Regex.Match(input, Pattern);
+
+            double result;
+
             if (InputMatch.Success)
             {
-                //Console.WriteLine("'{0}' in '{1}' was successful.", InputMatch.Value, input);
-                Console.WriteLine("number one : {0}, number two : {1}, operator: {2}",
-                    InputMatch.Groups[1], InputMatch.Groups[2], InputMatch.Groups[3]);
+                //convert the Regex matches to doubles, put them on the stack.
+                Stack.Push(double.Parse(InputMatch.Groups[1].Value));
+                Stack.Push(double.Parse(InputMatch.Groups[2].Value));
+                Stack.Push(InputMatch.Groups[3].Value.ToString());
+                result = DoOperation();
+                
             }
             else
             {
-                Console.WriteLine("'{0}' in '{1}' was not successful.", InputMatch.Value, input);
+                throw new ArgumentException("Improper input. (not in 'a b +' form)", input);
             }
-            return "nope";
+            Stack.Push(result);
+            return Stack.Pop().ToString();
+        }
+
+        public double DoOperation()
+        {
+            string op; //operator
+            double a;  //first operand
+            double b;  //second operand
+            double c;  //answer
+
+            //pop the top item into the operator
+            op = Stack.Pop().ToString();
+            b = Convert.ToDouble(Stack.Pop());
+            a = Convert.ToDouble(Stack.Pop());
+
+            switch (op)
+            {
+                case "+" :
+                    c = (a + b);
+                    break;
+                case "-" :
+                    c = (a - b);
+                    break;
+                case "*" :
+                    c = (a * b);
+                    break;
+                case "/":
+                    try
+                    {
+                        c = (a / b);
+                        if (c == double.PositiveInfinity || c == double.NegativeInfinity)
+                        {
+                            throw new ArgumentException("Cannot divide by zero.");
+                        }
+                    }
+                    catch (ArithmeticException)
+                    {
+                        throw new ArgumentException("Improper operation.");
+                    }
+                    break;
+
+                default:
+                    throw new ArgumentException("{0} is not a proper operator.", op);
+            
+            }
+            return c;
         }
     }
 }
