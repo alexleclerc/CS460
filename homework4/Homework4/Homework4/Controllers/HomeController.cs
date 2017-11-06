@@ -34,9 +34,25 @@ namespace Homework4.Controllers
         {
             double measure = Convert.ToDouble(Request.Form["measure"]);
             string unit = Request.Form["unit"];
-            //double result;
+            double result;
+            string convertedunit;
 
-            return Content($"The result is:{unit}");
+            if (unit.ToUpper() == "MI" || unit.ToUpper() == "MILE")
+            {
+                //if the input was miles, convert to KM
+                result = measure * 1.60934;
+                convertedunit = "km";
+            }
+            else if (unit.ToUpper() == "KM" || unit.ToUpper() == "KILOMETER")
+            {
+                result = measure * 0.621371;
+                convertedunit = "mi";
+            }
+            else
+            {
+                return Content($"Please input a number, and a unit (either mi/miles or km/kilometer");
+            }
+            return Content($"The result is: {result}{convertedunit}");
         }
 
 
