@@ -77,5 +77,27 @@ namespace Homework4.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Page3()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult LoanCalculator(double amount, double rate, double term)
+        {
+            double loanamount = amount;
+            double loanrate = rate / 100;
+            double loanterm = term;
+
+            double top = (loanrate * loanamount);
+            double bottom = (Math.Pow((1 + loanrate), (-1 * loanterm)));
+
+            double payment = top / (1 - bottom);
+            payment = Math.Round(payment, 2);
+
+            return Content($"Current balance: {loanamount}, current rate: {loanrate} %, number of periods: {loanterm}, Payment each term: ${payment}.");
+        }
     }
 }

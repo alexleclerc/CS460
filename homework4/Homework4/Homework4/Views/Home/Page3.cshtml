@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Page3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Page3</h2>
+
+<form method="get" action="/Home/LoanCalculator">
+    <label for="amount"> Current Balance: <input type="number" name="amount" min="0" step=".01" /> </label>
+    <label for="rate">   Current Rate: <input type="number" name="rate" min="0" step=".01"/>%</label>
+    <label for="term">   Current Terms: <input type="number" name="term" min="0"/></label>
+    <input type="submit" name="submit" value="Submit" />
+</form>
+
+<p>@ViewBag.loanoutput</p>
