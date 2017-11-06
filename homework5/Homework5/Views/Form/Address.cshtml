@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Address";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Address</h2>
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="id">ODL/Permit/ID/Customer #:<input type="number" name="id"/></label>
+        </div>
+        <div class="col-md-6">
+            <label for="dob">Date of Birth: <input type="date" name="dob" /></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="lastname">Last Name:<input type="text" name="lastname" /></label>
+        </div>
+        <div class="col-md-4"> 
+            <label for="firstname">First Name:<input type="text" name="firstname" /></label>
+        </div>
+        <div class="col-md-4">
+            <label for="middlename">Middle Name:<input type="text" name="middlename" /></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="newaddress">New address:<input type="text" name="newaddress" /></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">    
+            <label for="city">New City:<input type="text" name="city" /></label>
+        </div>
+        <div class="col-md-4">
+            <label for="state">New State:<input type="text" name="state" /></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="zip">New Zip Code:<input type="number" name="zip" /></label>
+        </div>
+        <div class="col-md-6">
+            <label for="county">New County:<input type="text" name="county" /></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="voter"><input type="checkbox" name="voter" checked="checked"/>I want to use this information to update my voter registration.</label>
+        </div>
+    </div>
+</form>
