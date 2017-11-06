@@ -8,7 +8,10 @@
 
 <h3>Bad Password Maker.</h3>
 <h4>Don't Use This</h4>
-<form>
-    <label for="food">Favorite food: <input type="text" id="food" /></label>
-    <label for="birthyear">Birth year: <input type="text" id="birthyear" /></label>
+<form method="post" action="/Home/Page2">
+    <label for="food">Favorite food: <input type="text" name="food" /></label>
+    <label for="birthyear">Birth year: <input type="number" name="birthyear" /></label>
+    <input type="submit" name="submit" value="Submit" />
 </form>
+
+<p>@ViewBag.genpassword</p>

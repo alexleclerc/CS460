@@ -55,10 +55,26 @@ namespace Homework4.Controllers
             return Content($"The result is: {result}{convertedunit}");
         }
 
+        
 
 
+        [HttpGet]
         public ActionResult Page2()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Page2(FormCollection pageform)
+        {
+            string food = pageform["food"];
+            int birthyear = Convert.ToInt32(pageform["birthyear"]);
+            int year2dig = birthyear % 100;
+
+            string result = food + year2dig;
+
+            ViewBag.genpassword = ($"{result} is the bad password you shouldn't use.");
+
             return View();
         }
     }
