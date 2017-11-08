@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Homework5.Models;
 
 namespace Homework5.Controllers
 {
     public class FormController : Controller
     {
+
+
         // GET: Form
         public ActionResult Index()
         {
@@ -17,6 +20,11 @@ namespace Homework5.Controllers
         public ActionResult Address()
         {
             return View();
+        }
+
+        public ActionResult Requests()
+        {
+            return View(db.Addresses.ToList());
         }
     }
 }

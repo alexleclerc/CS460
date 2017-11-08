@@ -31,7 +31,7 @@ namespace Homework5.Models
         public string City { get; set; }
 
         [Display(Name = "State:"), Required]
-        public string State { get; set; }
+        public string USState { get; set; }
 
         [Display(Name = "Zip Code:"), Required]
         public string ZipCode { get; set; }
