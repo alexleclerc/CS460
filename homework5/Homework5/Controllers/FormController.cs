@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Homework5.Models;
+using Homework5.DAL;
 
 namespace Homework5.Controllers
 {
     public class FormController : Controller
     {
-
+        private AddressContext db = new AddressContext();
 
         // GET: Form
         public ActionResult Index()

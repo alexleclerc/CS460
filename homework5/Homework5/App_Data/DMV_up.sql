@@ -8,8 +8,9 @@
 	Addr		NVARCHAR(128)		NOT NULL,
 	City		NVARCHAR(128)		NOT NULL,
 	USState		NVARCHAR(128)		NOT NULL,
+	Zip			INT					NOT NULL,
 	County		NVARCHAR(128),
 	CONSTRAINT [PK_dbo.Addresses] PRIMARY KEY CLUSTERED (ID ASC)
 )
-INSERT INTO dbo.Addresses (FirstName, MiddleName, LastName, DOB, Addr, City, USState, County) 
-VALUES ('Dude', 'Man', 'Bro', '06/10/1996', '111 burning ave', 'Lit City', 'Oregon', 'Polk');
+INSERT INTO dbo.Addresses (FirstName, MiddleName, LastName, DOB, Addr, City, USState, Zip, County) 
+VALUES ('Dude', 'Man', 'Bro', '06/10/1996', '111 Rad ave', 'Lit City', 'Oregon', 97305, 'Polk');

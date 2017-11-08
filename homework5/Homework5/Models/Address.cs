@@ -12,7 +12,7 @@ namespace Homework5.Models
         [Display(Name = "ID Number:"), Required]
         public int ID { get; set; }
 
-        [Display(Name = "Date of Birth:"), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy"), Required]
+        [Display(Name = "Date of Birth:"), DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}"), Required]
         public DateTime DOB { get; set; }
 
         [Display(Name = "Last Name:"), Required]
@@ -34,7 +34,7 @@ namespace Homework5.Models
         public string USState { get; set; }
 
         [Display(Name = "Zip Code:"), Required]
-        public string ZipCode { get; set; }
+        public int Zip { get; set; }
 
         [Display(Name = "County:"), Required]
         public string County { get; set; }
