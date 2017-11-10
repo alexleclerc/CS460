@@ -18,11 +18,23 @@ namespace Homework5.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Address()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Address([Bind(Include = "FirstName, MiddleName, LastName, DOB, Addr, City, USState, Zip, County")]Address address)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Addresses.Add(address);
+                db.SaveChanges();
+                return RedirectToAction("Requests");
+            }
+            return View();
+        }
         public ActionResult Requests()
         {
             return View(db.Addresses.ToList());
