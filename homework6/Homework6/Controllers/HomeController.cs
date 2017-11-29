@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using Homework6.Models;
 using System.Data;
 using System.Data.Entity;
+using System.Net;
+using System.Diagnostics;
+//using Homework6.DAL;
 
 namespace Homework6.Controllers
 {
@@ -19,13 +22,21 @@ namespace Homework6.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ViewResult Products(string category)
         {
-            ViewBag.Message = "Your application description page.";
+            //string ProductName = subCategory;
 
-            return View();
+            var ProductCategory = db.Product.Where(n => n.ProductSubcategory.Name == category);
+
+            //if (category == "Bikes" ||category == null)
+            //{
+            //    ViewBag.ProductType = "All " + category ;
+            //    return View(ProductNames.ToList());
+            //}
+
+            return View(ProductCategory.ToList());
+
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
