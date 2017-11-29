@@ -22,18 +22,13 @@ namespace Homework6.Controllers
             return View();
         }
 
-        public ViewResult Products(string category)
+        public ActionResult Products(string category)
         {
             //string ProductName = subCategory;
 
             var ProductCategory = db.Product.Where(n => n.ProductSubcategory.Name == category);
 
-            //if (category == "Bikes" ||category == null)
-            //{
-            //    ViewBag.ProductType = "All " + category ;
-            //    return View(ProductNames.ToList());
-            //}
-
+            ViewBag.ProductCategory = category;
             return View(ProductCategory.ToList());
 
         }

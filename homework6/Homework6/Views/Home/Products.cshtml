@@ -1,8 +1,8 @@
-﻿
+﻿@model IEnumerable<Homework6.Models.Product>
 @{
-    ViewBag.Title = "ProductsDisplay";
+    ViewBag.Title = ViewBag.ProductCategory;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Products</h2>
+<h2>@ViewBag.ProductCategory</h2>
 
