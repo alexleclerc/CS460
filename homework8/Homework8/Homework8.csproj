@@ -356,6 +356,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArtistController.cs" />
+    <Compile Include="Controllers\ArtworksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -403,14 +404,17 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Artist\Create.cshtml" />
     <Content Include="Views\Artist\Delete.cshtml" />
     <Content Include="Views\Artist\Details.cshtml" />
     <Content Include="Views\Artist\Edit.cshtml" />
     <Content Include="Views\Artist\Index.cshtml" />
+    <Content Include="Views\Artworks\Create.cshtml" />
+    <Content Include="Views\Artworks\Delete.cshtml" />
+    <Content Include="Views\Artworks\Details.cshtml" />
+    <Content Include="Views\Artworks\Edit.cshtml" />
+    <Content Include="Views\Artworks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
