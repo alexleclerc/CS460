@@ -1,24 +1,25 @@
 ﻿@model IEnumerable<Homework8.Models.Artwork>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Artworks";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>Artworks</h2>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Artist.FirstName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Artist.MiddleName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Artist.LastName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -27,12 +28,13 @@
             @Html.DisplayFor(modelItem => item.Artist.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.DisplayFor(modelItem => item.Artist.MiddleName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ArtworkID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ArtworkID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ArtworkID })
+            @Html.DisplayFor(modelItem => item.Artist.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
     </tr>
 }

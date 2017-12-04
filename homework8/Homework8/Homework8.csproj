@@ -410,10 +410,6 @@
     <Content Include="Views\Artist\Details.cshtml" />
     <Content Include="Views\Artist\Edit.cshtml" />
     <Content Include="Views\Artist\Index.cshtml" />
-    <Content Include="Views\Artworks\Create.cshtml" />
-    <Content Include="Views\Artworks\Delete.cshtml" />
-    <Content Include="Views\Artworks\Details.cshtml" />
-    <Content Include="Views\Artworks\Edit.cshtml" />
     <Content Include="Views\Artworks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
