@@ -11,5 +11,11 @@
     {
         <input type="button" value="@Html.DisplayFor(genreItem => genre.Name)" onclick="getWorks(@genre.GenreID)"/>
     }
+    <div id="displayContainer">
 
+    </div>
 </div>
+@section scripts
+{
+    <script src="~/Scripts/getWorks.js"></script>
+}
