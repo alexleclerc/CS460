@@ -7,10 +7,12 @@
 <div class="row">
     <h1>Welcome to ArtWorks</h1>
 
+    <div class="btn-group">
     @foreach (var genre in Model)
     {
-        <input type="button" value="@Html.DisplayFor(genreItem => genre.Name)" onclick="getWorks(@genre.GenreID)"/>
+        <input type="button" class ="btn" value="@Html.DisplayFor(genreItem => genre.Name)" onclick="getWorks(@genre.GenreID)"/>
     }
+    </div>
     <div id="displayContainer">
 
     </div>

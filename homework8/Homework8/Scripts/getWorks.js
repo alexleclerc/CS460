@@ -13,24 +13,32 @@
     {
         $("#displayContainer").empty();
         //create a string for the start of our table
-        var tableHTML = "<table class = \"table\"><thead><tr><th>Title</th><th>First Name</th><th>Middle Name</th><th>Last Name</th></tr></thead><tbody>";
+        var tableHTML = "<table class = \"table\"><thead><tr><th>Title</th><th>Artist</th></tr></thead><tbody>";
 
         //$("#displayContainer").append(tableStart);
         //$("#displayContainer").append(tableHead);
         $.each(inData, function (i, name) {
           //  $("#displayContainer").append(
-                tableHTML += "<tr>"
+            tableHTML += "<tr>"
                 + "<td>"
                 + name["Title"]
                 + "</td>"
-                + "<td>"
-                + name["FirstName"]
-                + "</td>"
-                + "<td>"
-                + name["MiddleName"]
-                + "</td>"
-                + "<td>"
-                + name["LastName"]
+                + "<td>";
+            if (name["FirstName"] == null) {
+                tableHTML += "";
+            }
+            else
+            {
+                tableHTML += name["FirstName"] + " ";
+            }
+            if (name["MiddleName"] == null) {
+                tableHTML += "";
+            }
+            else {
+                tableHTML += name["MiddleName"] + " ";
+            }
+              
+                tableHTML += name["LastName"]
                 + "</td>"
                 + "</tr>";
         });
