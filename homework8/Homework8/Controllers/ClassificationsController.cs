@@ -10,18 +10,16 @@ using Homework8.Models;
 
 namespace Homework8.Controllers
 {
-    public class ArtworksController : Controller
+    public class ClassificationsController : Controller
     {
         private ArtWorksContext db = new ArtWorksContext();
 
-        // GET: Artworks
+        // GET: Classifications
         public ActionResult Index()
         {
-            var artworks = db.Artworks.Include(a => a.Artist);
-            return View(artworks.ToList());
+            var classifications = db.Classifications.Include(c => c.Artwork).Include(c => c.Genre);
+            return View(classifications.ToList());
         }
-
-        
 
         protected override void Dispose(bool disposing)
         {

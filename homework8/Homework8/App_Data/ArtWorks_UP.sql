@@ -1,11 +1,7 @@
 ﻿--based off of: https://docs.microsoft.com/en-us/ef/core/get-started/aspnetcore/existing-db
 
 --DATABASE CREATION
-CREATE DATABASE [ArtWorks];
-GO
 
-USE [ArtWorks];
-GO
 
 --TABLE CREATION
 CREATE TABLE [Artists] 
