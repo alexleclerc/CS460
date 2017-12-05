@@ -24,7 +24,6 @@ CREATE TABLE [Items]
 	[ItemName] nvarchar(100) NOT NULL,
 	[ItemDescription] nvarchar(200),
 	[SellerID] int NOT NULL,
-	[SellerName] nvarchar(100) NOT NULL,
 	
 	CONSTRAINT [PK_Items]
 		PRIMARY KEY ([ItemID]),
@@ -51,4 +50,31 @@ CREATE TABLE [Bids]
 	CONSTRAINT [FK_Bids_Buyers_BuyerID]
 		FOREIGN KEY ([BuyerID]) REFERENCES [Buyers] ([BuyerID]) ON DELETE CASCADE
 );
+GO
+
+INSERT INTO [Buyers] (BuyerName) 
+	VALUES 
+		('Jane Stone'),
+		('Tom McMasters'),
+		('Otto Vanderwall');
+GO
+
+INSERT INTO [Sellers] (SellerName)
+	VALUES
+		('Gayle Hardy'),
+		('Lyle Banks'),
+		('Pearl Greene');
+GO
+
+INSERT INTO [Items] (ItemName, ItemDescription, SellerID)
+	VALUES
+		('Abraham Lincoln Hammer', 'A bench mallet fashioned from a broken rail splitting maul in 1892 and owned by Abraham Lincoln.', (SELECT SellerID FROM Sellers s WHERE SellerName = 'Pearl Greene')),
+		('Albert Einsteins Telescope', 'A brass telescope owned by Albert Einstein in Germany, circa 1927.', (SELECT SellerID FROM Sellers s WHERE SellerName = 'Gayle Hardy')),
+		('Bob Dylan Love Poems', 'Five versions of original unplublished handwritten, love poem by Bob Dylan.', (SELECT SellerID FROM Sellers s WHERE SellerName = 'Lyle Banks'))
+GO
+
+INSERT INTO [Bids] (ItemID, BuyerID, Price)
+	VALUES
+		((SELECT ItemID FROM Items i WHERE ItemName = 'Abraham Lincoln Hammer'), (SELECT BuyerID FROM Buyers b WHERE BuyerName = 'Otto Vanderwall'), '250000'),
+		((SELECT ItemID FROM Items i WHERE ItemName = 'Bob Dylan Love Poems'), (SELECT BuyerID FROM Buyers b WHERE BuyerName = 'Jane Stone'), '95000')
 GO
