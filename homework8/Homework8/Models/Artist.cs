@@ -28,7 +28,7 @@ namespace Homework8.Models
 
         [Column(TypeName = "date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:MM/dd/yyyy}")]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [RestrictedDate]
         public DateTime? BirthDate { get; set; }
 
@@ -42,6 +42,10 @@ namespace Homework8.Models
         {
             public override bool IsValid(object date)
             {
+                if (date == null)
+                {
+                    return true;
+                }
                 DateTime Date = (DateTime)date;
                 return Date < DateTime.Now;
             }
