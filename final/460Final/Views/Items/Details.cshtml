@@ -20,6 +20,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.ItemID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemID)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.ItemName)
         </dt>
 
@@ -38,6 +46,16 @@
     </dl>
 </div>
 <p>
+    <input type="button" value="See Bids" onclick="getBids(@Model.ItemID)" />
     @Html.ActionLink("Edit", "Edit", new { id = Model.ItemID }) |
     @Html.ActionLink("Back to List", "Index")
+
 </p>
+
+<div id="displayContainer">
+    </div>
+
+@section scripts
+{
+    <script src="~/Scripts/getBids.js"></script>
+}

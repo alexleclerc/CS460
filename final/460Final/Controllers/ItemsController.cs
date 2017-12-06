@@ -128,5 +128,18 @@ namespace _460Final.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public JsonResult ItemBids(int id)
+        {
+            var BidsCollection = db.Items.Where(i => i.ItemID == id)
+                                         .Select(x => x.Bids)
+                                         .FirstOrDefault()
+                                         .Select(x => new { x.Price, x.TimeStamp, x.Buyer.BuyerName})
+                                         .OrderBy(x => x.Price)
+                                         .ToList();
+            //list object 
+            return Json(BidsCollection, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

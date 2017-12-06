@@ -41,7 +41,7 @@ CREATE TABLE [Bids]
 	[ItemID] int NOT NULL,
 	[BuyerID] int NOT NULL,
 	[Price] int NOT NULL,
-	[TimeStamp] datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+	[TimeStamp] datetime2 NOT NULL DEFAULT CURRENT_TIMESTAMP
 
 	CONSTRAINT [PK_Bids]
 		PRIMARY KEY ([BidID]),
